@@ -1,21 +1,12 @@
 var Product = require('../models/product');
 
-// function index
 
-//function addIteam
+function index(req, res){
+    Product.find({}).then((products) => res.json(products))
+}
 
-//function deleteItem
-
-//function 
-
-
-// add 
-
-// remove
-
-//search by name 
 
 
 module.exports = {
-
+    index 
 }

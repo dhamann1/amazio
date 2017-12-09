@@ -1,9 +1,14 @@
 import React from 'react';
 
-const CataloguePage = () => {
+const CataloguePage = (props) => {
     return (
-    <h1> Hello CataloguePage </h1> 
-    )
-}
+      <div>
+        {props.products ?
+        props.products.map((product, idx) => <li key="idx">{product.name}</li>)
+        :
+        <h2>LOADING</h2>}
+      </div>
+    );
+  }
 
 export default CataloguePage; 

@@ -15,6 +15,17 @@ import Navbar from '../../components/Navbar/Navbar';
 
 
 class App extends Component {
+  constructor () {
+    super() 
+    this.state = {
+      products: null,
+    }
+  }
+  componentDidMount(){
+    fetch('/catalogue').then( (data) => data.json()).then((data) => {
+      this.setState({products: data})
+    })
+  }
   render() {
     return (
       <div className="App">
@@ -23,7 +34,7 @@ class App extends Component {
       <Switch> 
 
         <Route exact path='/catalogue' render={() => 
-          <CataloguePage />
+          <CataloguePage products={this.state.products}/>
           }/> 
         <Route exact path='/checkout' render={() => 
           <CheckoutPage />
